@@ -20,18 +20,18 @@ MouseArea {
     id: contextMenu
 
     Action {
-      text: "Cut"
-      onTriggered: {
-        console.log("Cut!");
-        xTextEdit.cut()
-      }
-    }
-
-    Action {
       text: "Copy"
       onTriggered: {
         console.log("Copy!");
         xTextEdit.copy()
+      }
+    }
+
+    Action {
+      text: "Cut"
+      onTriggered: {
+        console.log("Cut!");
+        xTextEdit.cut()
       }
     }
 

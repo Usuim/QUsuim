@@ -3,6 +3,7 @@ import QtQuick.Window 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Controls.Material 2.14
 import "Appbar"
+import "Editor"
 
 ApplicationWindow {
 
@@ -21,19 +22,17 @@ ApplicationWindow {
   }
   // End AppBar
 
+  // Editor
+  Flick{
+    id: flick
+    TextArea.flickable: Editor{
+      id: xTextEdit
+    }
+  }
+  // End Editor
+
   // Contextual Menu
   ContextMenu{}
   // End Contextual Menu
 
-  // Editor
-  TextEdit {
-    id: xTextEdit
-    height: parent.height
-    width: parent.width
-    selectByMouse: true
-    color: "#ffffff"
-    font.family: "DroidSansMono"
-    font.pointSize: 12
-  }
-  // End Editor
 }

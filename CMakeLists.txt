@@ -30,6 +30,8 @@ qt_add_qml_module(usuim
     ui/ContextMenu.qml
     ui/Appbar/AppBar.qml
     ui/Appbar/About.qml
+    ui/Editor/Flick.qml
+    ui/Editor/Editor.qml
 )
 
 target_link_libraries(usuim PRIVATE Qt6::Gui Qt6::Quick)

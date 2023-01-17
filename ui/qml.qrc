@@ -4,5 +4,7 @@
         <file>ContextMenu.qml</file>
         <file>Appbar/AppBar.qml</file>
         <file>Appbar/About.qml</file>
+        <file>Editor/Editor.qml</file>
+        <file>Editor/Flick.qml</file>
     </qresource>
 </RCC>

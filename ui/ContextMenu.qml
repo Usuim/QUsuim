@@ -4,20 +4,20 @@ import QtQuick.Controls 2.14
 import QtQuick.Controls.Material 2.14
 
 MouseArea {
-
   anchors.fill: parent
-  acceptedButtons: Qt.LeftButton | Qt.RightButton
-  onClicked: (mouse) => {
-    if (mouse.button === Qt.RightButton)
-        contextMenu.popup()
-  }
-  onPressAndHold: (mouse) => {
-    if (mouse.source === Qt.MouseEventNotSynthesized)
-        contextMenu.popup()
-  }
+  cursorShape: Qt.IBeamCursor
+  acceptedButtons: Qt.RightButton
+  onClicked: (mouse) => contextMenu.openAt(mouse.x, mouse.y)
+
 
   Menu {
     id: contextMenu
+
+    function openAt(x, y) {
+        contextMenu.x = x
+        contextMenu.y = y
+        contextMenu.open()
+    }
 
     Action {
       text: "Copy"

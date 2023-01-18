@@ -28,6 +28,12 @@ ApplicationWindow {
     }
     SuggestionBox{
       id: autoComplete
+      PopupItems{
+        id: sugBox
+        Keywords{
+          id: listView
+        }
+      }
     }
   }
 

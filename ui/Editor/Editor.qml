@@ -16,6 +16,9 @@ TextArea {
   font.family: "DroidSansMono"
   font.pointSize: 12
 
+  onTextChanged: autoComplete.open()
+  Keys.forwardTo: [listView.currentItem, listView]
+
   property bool ctrlPressed: false
 
   Keys.onPressed: (event) => {

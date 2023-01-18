@@ -33,6 +33,8 @@ qt_add_qml_module(usuim
     ui/Editor/Flick.qml
     ui/Editor/Editor.qml
     ui/Editor/Suggestion/SuggestionBox.qml
+    ui/Editor/Suggestion/Keywords.qml
+    ui/Editor/Suggestion/PopupItems.qml
 )
 
 target_link_libraries(usuim PRIVATE Qt6::Gui Qt6::Quick)

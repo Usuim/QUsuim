@@ -4,8 +4,7 @@ import QtQuick.Controls 2.14
 import QtQuick.Controls.Material 2.14
 
 Flickable {
-  height: parent.height
-  width: parent.width
+  anchors.fill:parent
 
   contentWidth: xTextEdit.contentWidth
   contentHeight: xTextEdit.contentHeight

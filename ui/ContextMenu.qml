@@ -43,6 +43,15 @@ MouseArea {
       }
     }
 
+    Action {
+      text: "Insert text"
+      onTriggered: {
+        console.log("inserting");
+        xTextEdit.insert(xTextEdit.cursorPosition, "Hello World!")
+      }
+    }
+
+
     MenuSeparator { }
 
     Menu {

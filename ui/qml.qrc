@@ -6,5 +6,6 @@
         <file>Appbar/About.qml</file>
         <file>Editor/Editor.qml</file>
         <file>Editor/Flick.qml</file>
+        <file>Editor/Suggestion/SuggestionBox.qml</file>
     </qresource>
 </RCC>

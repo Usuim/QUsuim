@@ -5,6 +5,9 @@ import QtQuick.Controls.Material 2.14
 import "Keywords.js" as KeyData
 
 ListView {
+  property var selS: 0
+  property var selE: 0
+
   implicitWidth: 200 // <==
   implicitHeight: contentHeight
 
@@ -37,6 +40,14 @@ ListView {
     }
 
     Keys.onReturnPressed: {
+      xTextEdit.selectWord()
+
+      selS = xTextEdit.selectionStart
+      selE = xTextEdit.selectionEnd
+
+      xTextEdit.deselect()
+      xTextEdit.remove(selS, selE)
+
       xTextEdit.insert(xTextEdit.cursorPosition, text)
       console.log(modelData)
       autoComplete.close()

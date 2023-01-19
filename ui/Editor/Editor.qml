@@ -3,6 +3,8 @@ import QtQuick.Window 2.14
 import QtQuick.Controls 2.14
 import QtQuick.Controls.Material 2.14
 
+import "Actions.js" as Act
+
 TextArea {
   height: flick.height
   width: flick.width
@@ -16,23 +18,24 @@ TextArea {
   font.family: "DroidSansMono"
   font.pointSize: 12
 
-  onTextChanged: autoComplete.open()
+  // onTextChanged: autoComplete.open()
   Keys.forwardTo: [listView.currentItem, listView]
 
   property bool ctrlPressed: false
 
   Keys.onPressed: (event) => {
-      if (event.key === Qt.Key_Control) {
-        ctrlPressed = true
-      }
-      if(ctrlPressed) {
-        if(event.key === Qt.Key_Space) {
-          console.log("Ctrl + Space")
-          autoComplete.open()
-          ctrlPressed = false
-        }
+    if (event.key === Qt.Key_Control) {
+      ctrlPressed = true
+    }
+    if(ctrlPressed) {
+      if(event.key === Qt.Key_Space) {
+        console.log("Ctrl + Space")
+        autoComplete.open()
+        ctrlPressed = false
       }
     }
+    Act.checkKey(event)
+  }
   Keys.onReleased: (event) => {
     if (event.key === Qt.Key_Control) {
       ctrlPressed = false
@@ -41,5 +44,10 @@ TextArea {
   Keys.onTabPressed: {
     console.log("tab")
     xTextEdit.insert(xTextEdit.cursorPosition, "    ")
+  }
+
+  Keys.onReturnPressed: {
+    xTextEdit.insert(xTextEdit.cursorPosition, "\n")
+    autoComplete.close()
   }
 }

@@ -44,10 +44,10 @@ MouseArea {
     }
 
     Action {
-      text: "Insert text"
+      text: "Select Word"
       onTriggered: {
         console.log("inserting");
-        xTextEdit.insert(xTextEdit.cursorPosition, "Hello World!")
+        xTextEdit.selectWord()
       }
     }
 

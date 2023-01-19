@@ -6,7 +6,35 @@ function filterKW(text) {
     return KW;
   }
   else {
-    let filteredKw = KW.filter(word => word.startsWith(text))
-    return filteredKw
+    let bufferText = xTextEdit.text
+    let bufferArray = bufferText.split(/\s+/)
+    bufferArray.pop()
+    bufferArray.filter(el => el !== "\n")
+    bufferArray.filter(el => el !== "(")
+    bufferArray.filter(el => el !== ")")
+    bufferArray.filter(el => el !== "{")
+    bufferArray.filter(el => el !== "}")
+    bufferArray.filter(el => el !== "@")
+    bufferArray.filter(el => el !== "#")
+    bufferArray.filter(el => el !== "<")
+    bufferArray.filter(el => el !== ">")
+    bufferArray.filter(el => el !== ":")
+    bufferArray.filter(el => el !== ";")
+    bufferArray.filter(el => el !== "-")
+    bufferArray.filter(el => el !== "_")
+    bufferArray.filter(el => el !== "*")
+    bufferArray.filter(el => el !== "+")
+    bufferArray.filter(el => el !== ".")
+    bufferArray.filter(el => el !== ",")
+
+    console.log(bufferArray)
+
+    let allKW = KW.concat(bufferArray)
+    let filteredKw = allKW.filter(word => word.startsWith(text))
+    var uniqueArray = filteredKw.filter(function(item, pos) {
+      return filteredKw.indexOf(item) == pos;
+    })
+    console.log(uniqueArray)
+    return uniqueArray
   }
 }

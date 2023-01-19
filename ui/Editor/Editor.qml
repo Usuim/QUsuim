@@ -53,11 +53,11 @@ TextArea {
   }
   Keys.onTabPressed: {
     console.log("tab")
-    xTextEdit.insert(xTextEdit.cursorPosition, "    ")
+    this.insert(this.cursorPosition, "    ")
   }
 
   Keys.onReturnPressed: {
-    xTextEdit.insert(xTextEdit.cursorPosition, "\n")
+    this.insert(this.cursorPosition, "\n")
     autoComplete.close()
   }
 

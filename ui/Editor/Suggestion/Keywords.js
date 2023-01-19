@@ -30,7 +30,21 @@ function filterKW(text) {
     console.log(bufferArray)
 
     let allKW = KW.concat(bufferArray)
-    let filteredKw = allKW.filter(word => word.startsWith(text))
+    let filteredKw = allKW.filter((word) => word.startsWith(text))
+    filteredKw.filter( item => item.includes(`"`))
+    filteredKw.filter( item => item.includes(`/`))
+    filteredKw.filter( item => item.includes(`'`))
+    filteredKw.filter( item => item.includes(`<`))
+    filteredKw.filter( item => item.includes(`>`))
+
+    filteredKw.forEach((el, i) => {
+      if(el.includes(";")) {
+        var newKey = Array.from(el)
+        newKey.pop()
+        filteredKw[i] = newKey.join('')
+      }
+    })
+
     var uniqueArray = filteredKw.filter(function(item, pos) {
       return filteredKw.indexOf(item) == pos;
     })
